@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-natal-vermelho: #9e0606;
+  --color-natal-branco: #faf6f6;
+  --color-natal-verde: #025a11;
+  --color-natal-dourado: #fffad1;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #9e0606;
+  --foreground: #faf6f6;
+}
+
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100%;
+}
+
+@keyframes treeSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes lightPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes snowFallLinear {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(15px);
+  }
+  100% {
+    transform: translateY(110vh) translateX(-15px);
+  }
+}
+
+.anim-tree {
+  transform-origin: bottom center;
+  animation: treeSway 6s ease-in-out infinite;
+}
+
+.anim-light-1 {
+  animation: lightPulse 2.2s ease-in-out infinite;
+}
+
+.anim-light-2 {
+  animation: lightPulse 2.8s ease-in-out infinite 0.7s;
+}
+
+.anim-light-3 {
+  animation: lightPulse 3.1s ease-in-out infinite 1.4s;
+}
+
+.anim-snow-layer1 {
+  animation: snowFallLinear 9s linear infinite;
+}
+
+.anim-snow-layer2 {
+  animation: snowFallLinear 14s linear infinite 3s;
+}
+
+.anim-snow-layer3 {
+  animation: snowFallLinear 6s linear infinite 1.5s;
+}
+
+.anim-snow-layer4 {
+  animation: snowFallLinear 11s linear infinite 4.5s;
+}
+
+@keyframes sleighLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-sleigh-loop {
+  animation: sleighLoop 22s linear infinite;
 }
